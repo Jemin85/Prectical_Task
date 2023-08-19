@@ -20,14 +20,21 @@ class _HomeScreenState extends State<HomeScreen> {
               fontSize: 16, color: Colors.white, fontWeight: FontWeight.w500),
         ),
         actions: [
-          IconButton(onPressed: (){}, icon: Icon(Icons.add,color: Colors.white,))
+          IconButton(
+              onPressed: () {
+                Get.toNamed(AppPages.AddResumeDetails);
+              },
+              icon: const Icon(
+                Icons.add,
+                color: Colors.white,
+              ))
         ],
       ),
       body: Column(
         children: [
           GestureDetector(
-            onTap: (){
-              Get.offNamed(AppPages.ResumeShow);
+            onTap: () {
+              Get.toNamed(AppPages.ResumeShow);
             },
             child: Container(
               margin: const EdgeInsets.all(15),
@@ -47,7 +54,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
           ),
-          const Divider(color:Colors.grey)
+          const Divider(color: Colors.grey)
         ],
       ),
     );
