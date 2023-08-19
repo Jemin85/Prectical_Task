@@ -20,8 +20,8 @@ class _ResumeShowScreenState extends State<ResumeShowScreen> {
   InfoController infoController = Get.put(InfoController());
   EducationController educationController = Get.put(EducationController());
   PersonalController personalController = Get.put(PersonalController());
-  ExpericanceController expericanceController = Get.put(ExpericanceController
-    ());
+  ExpericanceController expericanceController =
+      Get.put(ExpericanceController());
   ProjectController projectController = Get.put(ProjectController());
   CareerController careerController = Get.put(CareerController());
 
@@ -38,55 +38,55 @@ class _ResumeShowScreenState extends State<ResumeShowScreen> {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               // if(infoController.infoModel != null)
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Expanded(
-                      child: Text(
-                        "${infoController.infoModel.designation}",
-                        style: const TextStyle(
-                            fontSize: 18,
-                            color: Colors.black,
-                            fontWeight: FontWeight.bold),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Expanded(
+                    child: Text(
+                      "${infoController.infoModel.designation}",
+                      style: const TextStyle(
+                          fontSize: 18,
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                  Expanded(
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 10),
+                      decoration: const BoxDecoration(
+                          border:
+                              Border(left: BorderSide(color: Colors.black))),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "${infoController.infoModel.name}",
+                            style: const TextStyle(
+                                fontSize: 16,
+                                color: Colors.black,
+                                fontWeight: FontWeight.w500),
+                          ),
+                          Text(
+                            "${infoController.infoModel.email}",
+                            style: const TextStyle(
+                                fontSize: 14,
+                                color: Colors.black54,
+                                fontWeight: FontWeight.w500),
+                          ),
+                          Text(
+                            "${infoController.infoModel.mobile}",
+                            style: const TextStyle(
+                                fontSize: 16,
+                                color: Colors.black54,
+                                fontWeight: FontWeight.w500),
+                          )
+                        ],
                       ),
                     ),
-                    Expanded(
-                      child: Container(
-                        padding: const EdgeInsets.symmetric(horizontal: 10),
-                        decoration: const BoxDecoration(
-                            border:
-                            Border(left: BorderSide(color: Colors.black))),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children:  [
-                            Text(
-                              "${infoController.infoModel.name}",
-                              style:const TextStyle(
-                                  fontSize: 16,
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.w500),
-                            ),
-                            Text(
-                              "${infoController.infoModel.email}",
-                              style: const TextStyle(
-                                  fontSize: 14,
-                                  color: Colors.black54,
-                                  fontWeight: FontWeight.w500),
-                            ),
-                            Text(
-                              "${infoController.infoModel.mobile}",
-                              style: const TextStyle(
-                                  fontSize: 16,
-                                  color: Colors.black54,
-                                  fontWeight: FontWeight.w500),
-                            )
-                          ],
-                        ),
-                      ),
-                    )
-                  ],
-                ),
-            const  SizedBox(height: 10),
+                  )
+                ],
+              ),
+              const SizedBox(height: 10),
               const Text(
                 "Career Objective",
                 style: TextStyle(
@@ -94,21 +94,21 @@ class _ResumeShowScreenState extends State<ResumeShowScreen> {
                     color: Colors.black,
                     fontWeight: FontWeight.bold),
               ),
-            const  Divider(color: Colors.black),
-             if(careerController.careerModel != null)
-               Column(
-                 crossAxisAlignment: CrossAxisAlignment.start,
-                 children: List.generate(
-                   1,
-                       (index) => Text(
-                     "${careerController.careerModel.skill}",
-                     style: const TextStyle(
-                         fontSize: 14,
-                         color: Colors.black,
-                         fontWeight: FontWeight.bold),
-                   ),
-                 ),
-               ),
+              const Divider(color: Colors.black),
+              if (careerController.careerModel != null)
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: List.generate(
+                    1,
+                    (index) => Text(
+                      "${careerController.careerModel.skill}",
+                      style: const TextStyle(
+                          fontSize: 14,
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                ),
 
               SizedBox(height: 10),
               const Text(
@@ -120,42 +120,42 @@ class _ResumeShowScreenState extends State<ResumeShowScreen> {
               ),
               Divider(color: Colors.black),
               Column(
-                 crossAxisAlignment: CrossAxisAlignment.start,
-                 children: List.generate(
-                     1,
-                         (index) => ListTile(
-                       leading: Text(
-                         "${index + 1}",
-                         style: const TextStyle(
-                             fontSize: 12,
-                             color: Colors.black,
-                             fontWeight: FontWeight.bold),
-                       ),
-                       title: Text(
-                         "${expericanceController.experianceModel.name}",
-                         style: const TextStyle(
-                             fontSize: 14,
-                             color: Colors.black,
-                             fontWeight: FontWeight.bold),
-                       ),
-                       subtitle: Text(
-                         "${expericanceController.experianceModel.designation}",
-                         style: const TextStyle(
-                             fontSize: 14,
-                             color: Colors.black,
-                             fontWeight: FontWeight.bold),
-                       ),
-                       trailing: Text(
-                         "${expericanceController.experianceModel.mobile}",
-                         style: const TextStyle(
-                             fontSize: 14,
-                             color: Colors.black,
-                             fontWeight: FontWeight.bold),
-                       ),
-                     )),
-               ),
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: List.generate(
+                    1,
+                    (index) => ListTile(
+                          leading: Text(
+                            "${index + 1}",
+                            style: const TextStyle(
+                                fontSize: 12,
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold),
+                          ),
+                          title: Text(
+                            "${expericanceController.experianceModel.name}",
+                            style: const TextStyle(
+                                fontSize: 14,
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold),
+                          ),
+                          subtitle: Text(
+                            "${expericanceController.experianceModel.designation}",
+                            style: const TextStyle(
+                                fontSize: 14,
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold),
+                          ),
+                          trailing: Text(
+                            "${expericanceController.experianceModel.mobile}",
+                            style: const TextStyle(
+                                fontSize: 14,
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        )),
+              ),
 
-             const SizedBox(height: 10),
+              const SizedBox(height: 10),
               const Text(
                 "Project Details",
                 style: TextStyle(
@@ -163,7 +163,7 @@ class _ResumeShowScreenState extends State<ResumeShowScreen> {
                     color: Colors.black,
                     fontWeight: FontWeight.bold),
               ),
-            const  Divider(color: Colors.black),
+              const Divider(color: Colors.black),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: List.generate(
@@ -220,23 +220,23 @@ class _ResumeShowScreenState extends State<ResumeShowScreen> {
                                 color: Colors.black,
                                 fontWeight: FontWeight.bold),
                           ),
-                          title:  Text(
+                          title: Text(
                             "${educationController.educationModel.name}",
                             style: const TextStyle(
                                 fontSize: 14,
                                 color: Colors.black,
                                 fontWeight: FontWeight.bold),
                           ),
-                          subtitle:  Text(
+                          subtitle: Text(
                             "${educationController.educationModel.role}",
-                            style: const  TextStyle(
+                            style: const TextStyle(
                                 fontSize: 14,
                                 color: Colors.black,
                                 fontWeight: FontWeight.bold),
                           ),
-                          trailing:  Text(
+                          trailing: Text(
                             "${educationController.educationModel.duration}",
-                            style: const  TextStyle(
+                            style: const TextStyle(
                                 fontSize: 14,
                                 color: Colors.black,
                                 fontWeight: FontWeight.bold),
@@ -251,11 +251,11 @@ class _ResumeShowScreenState extends State<ResumeShowScreen> {
                     color: Colors.black,
                     fontWeight: FontWeight.bold),
               ),
-             const Divider(color: Colors.black),
+              const Divider(color: Colors.black),
 
               Row(
-                children:  [
-                 const Expanded(
+                children: [
+                  const Expanded(
                     flex: 1,
                     child: Text("Address",
                         style: TextStyle(
@@ -267,18 +267,17 @@ class _ResumeShowScreenState extends State<ResumeShowScreen> {
                   Expanded(
                     flex: 2,
                     child: Text("${personalController.personalModel.address}",
-                        style:const TextStyle(
+                        style: const TextStyle(
                           fontSize: 16,
                           color: Colors.black54,
                           fontWeight: FontWeight.w500,
                         )),
                   )
                 ],
-
               ),
               Row(
-                children:  [
-                const  Expanded(
+                children: [
+                  const Expanded(
                     flex: 1,
                     child: Text("DOB",
                         style: TextStyle(
@@ -297,11 +296,10 @@ class _ResumeShowScreenState extends State<ResumeShowScreen> {
                         )),
                   )
                 ],
-
               ),
               Row(
-                children:  [
-                 const Expanded(
+                children: [
+                  const Expanded(
                     flex: 1,
                     child: Text("Gender",
                         style: TextStyle(
@@ -320,11 +318,9 @@ class _ResumeShowScreenState extends State<ResumeShowScreen> {
                         )),
                   )
                 ],
-
               ),
-             ],
-          )
-    ),
+            ],
+          )),
         ),
       ),
     );
