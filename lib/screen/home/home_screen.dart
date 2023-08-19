@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:untitled/routes/app_pages.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -23,21 +25,25 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       body: Column(
         children: [
-          Container(
-            margin: const EdgeInsets.all(15),
-
-            child: const ListTile(
-              leading: Text(
-                "1",
-                style: TextStyle(fontSize: 14, color: Colors.black),
-              ),
-              title: Text(
-                "Jemin",
-                style: TextStyle(fontSize: 16, color: Colors.black),
-              ),
-              subtitle: Text(
-                "Sukhadiya",
-                style: TextStyle(fontSize: 14, color: Colors.grey),
+          GestureDetector(
+            onTap: (){
+              Get.offNamed(AppPages.ResumeShow);
+            },
+            child: Container(
+              margin: const EdgeInsets.all(15),
+              child: const ListTile(
+                leading: Text(
+                  "1",
+                  style: TextStyle(fontSize: 14, color: Colors.black),
+                ),
+                title: Text(
+                  "Jemin",
+                  style: TextStyle(fontSize: 16, color: Colors.black),
+                ),
+                subtitle: Text(
+                  "Sukhadiya",
+                  style: TextStyle(fontSize: 14, color: Colors.grey),
+                ),
               ),
             ),
           ),
