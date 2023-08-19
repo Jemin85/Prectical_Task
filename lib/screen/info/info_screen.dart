@@ -12,6 +12,8 @@ class InfoScreen extends StatefulWidget {
 
 class _InfoScreenState extends State<InfoScreen> {
   InfoController infoController = Get.put(InfoController());
+  GlobalKey<FormState> _form = GlobalKey();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,73 +24,108 @@ class _InfoScreenState extends State<InfoScreen> {
         () {
           return SingleChildScrollView(
             padding: EdgeInsets.all(15),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                TextFormField(
-                  controller: infoController.name.value,
-                  decoration: InputDecoration(
-                      hintText: "Enter Name",
-                      label: Text("Name"),
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10)),
-                      focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10)),
-                      enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10)),
-                      errorBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10))),
-                ),
-                SizedBox(height: 15),
-                TextFormField(
-                  controller: infoController.designation.value,
-                  decoration: InputDecoration(
-                      hintText: "Enter Designation",
-                      label: Text("Designation"),
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10)),
-                      focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10)),
-                      enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10)),
-                      errorBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10))),
-                ),
-                SizedBox(height: 15),
-                TextFormField(
-                  controller: infoController.email.value,
-                  decoration: InputDecoration(
-                      hintText: "Enter Email",
-                      label: Text("Email"),
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10)),
-                      focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10)),
-                      enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10)),
-                      errorBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10))),
-                ),
-                SizedBox(height: 15),
-                TextFormField(
-                  controller: infoController.number.value,
-                  decoration: InputDecoration(
-                      hintText: "Enter Mobile no",
-                      label: Text("Mobile No"),
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10)),
-                      focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10)),
-                      enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10)),
-                      errorBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10))),
-                ),
-                SizedBox(height: 15),
-                ElevatedButton(onPressed: (){
-                  infoController.addDetails();
-                }, child: Text("Submit"))
-              ],
+            child: Form(
+              key: _form,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  TextFormField(
+                    controller: infoController.name.value,
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return "required";
+                      }
+
+                      return null;
+                    },
+                    decoration: InputDecoration(
+                        hintText: "Enter Name",
+                        label: Text("Name"),
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10)),
+                        focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10)),
+                        enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10)),
+                        errorBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10))),
+                  ),
+                  SizedBox(height: 15),
+                  TextFormField(
+                    controller: infoController.designation.value,
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return "required";
+                      }
+
+                      return null;
+                    },
+                    decoration: InputDecoration(
+                        hintText: "Enter Designation",
+                        label: Text("Designation"),
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10)),
+                        focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10)),
+                        enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10)),
+                        errorBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10))),
+                  ),
+                  SizedBox(height: 15),
+                  TextFormField(
+                    controller: infoController.email.value,
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return "required";
+                      }
+
+                      return null;
+                    },
+                    decoration: InputDecoration(
+                        hintText: "Enter Email",
+                        label: Text("Email"),
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10)),
+                        focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10)),
+                        enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10)),
+                        errorBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10))),
+                  ),
+                  SizedBox(height: 15),
+                  TextFormField(
+                    controller: infoController.number.value,
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return "required";
+                      }
+
+                      return null;
+                    },
+                    decoration: InputDecoration(
+                        hintText: "Enter Mobile no",
+                        label: Text("Mobile No"),
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10)),
+                        focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10)),
+                        enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10)),
+                        errorBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10))),
+                  ),
+                  SizedBox(height: 15),
+                  ElevatedButton(
+                      onPressed: () {
+                        if (_form.currentState!.validate()) {
+                          infoController.addDetails();
+                        }
+                      },
+                      child: Text("Submit"))
+                ],
+              ),
             ),
           );
         },
